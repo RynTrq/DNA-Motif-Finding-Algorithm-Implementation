@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dna-motif-finder"
+version = "1.0.0"
+description = "Classic DNA motif finding algorithms with a tested Python API and CLI."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "DNA Motif Finder Maintainers" }]
+license = { text = "MIT" }
+keywords = ["bioinformatics", "dna", "motif", "gibbs-sampling", "median-string"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+dna-motif = "dna_motif.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
